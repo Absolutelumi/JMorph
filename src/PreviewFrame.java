@@ -42,8 +42,10 @@ class PreviewPanel extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                // Wipe previous images/videos
                 File imageDirectory = new File("outimages/");
+                if (!imageDirectory.exists()) imageDirectory.mkdir();
+
+                // Wipe previous images/videos
                 for (File file : imageDirectory.listFiles()) file.delete();
 
                 for (int i = 0; i < morphFrames.size(); i++)
